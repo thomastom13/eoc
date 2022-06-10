@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+{% block content %}
+
+
+
+<div class="container border mt-5 col-sm-5 shadow rounded">
+
+
+<h1 class="text-center">Login</h1>
+<br><br>
+
+<!-- <div class="col-md-4"> -->
+<div class="form-group">
+<form action="" method="post">
+    {% csrf_token %}
+<!-- Django form in order how we use in admin area p can be changed to ul or table etc -->
+    <!-- {{ form.as_p }} -->
+
+    
+     
+
+    <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="Username" required>
+
+        <!-- <p class="errorlist"> {{ form.username.errors }}</p> -->
+
+    </div>
+
+    <div class="form-group">
+        <input type="password" name="password" class="form-control" id="" placeholder="Password" required >
+
+        <!-- <p class="errorlist"> {{ form.password.errors }}</p> -->
+
+    </div>
+
+    {% if form.errors %}
+   
+    
+    <div class="alert alert-danger alert-dismissible ">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+           <p class="errorlist"> {{ form.errors }}</p>
+        </div>
+    
+        {% endif %}
+  
+    <button class="btn btn-primary">Login</button>
+
+<br>
+</form>
+<br>
+<p class="font-weight-light"> Not Registered?  <a href="{% url 'register' %}" class="text-decoration-none font-weight-bold text-dark">Sign Up</a></p>
+
+</div>
+
+
+</div>
+<!-- <style>
+    ::marker{
+        size: 0ch;
+        color:red;
+        display: none;
+        visibility: hidden !important;
+    }
+</style> -->
+
+<!-- </div> -->
+{% endblock %}
+
